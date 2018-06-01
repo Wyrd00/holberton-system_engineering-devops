@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #fizzbuzz up to 100
 i=1
-for i in {1..100}; do
+while [ $i -le 100 ]; do
     if [ $((i % 3)) = 0 ] && [ $((i % 5)) = 0 ]
     then
         echo "FizzBuzz"
@@ -14,4 +14,5 @@ for i in {1..100}; do
     else
         echo "$i"
     fi
+    i=$((i + 1))
 done
