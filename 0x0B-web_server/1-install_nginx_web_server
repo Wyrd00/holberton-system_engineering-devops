@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# configures new Ubuntu machine with settings
+
+apt-get install Nginx
+echo > /usr/share/nginx/html/index.html
