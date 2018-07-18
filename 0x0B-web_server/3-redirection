@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# configure server so that /redirect_me is 301 
+# configure server so that /redirect_me to another site 
 
 sudo apt-get update
 sudo apt-get install Nginx -y
