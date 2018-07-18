@@ -3,8 +3,10 @@
 
 sudo apt-get update
 sudo apt-get install Nginx -y
+echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
+redirect="location /redirect_me {\nrewrite ^/redirect_me(.*)$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\n}"
+sudo sed -i "30i $redirect" /etc/nginx/sites-available/default
 echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
-sudo service nginx start
 new_404="error_page 404 /404.html;\nlocation = /404.html {\nroot /usr/share/nginx/html;\ninternal;\n}"
-sudo sed -i "31i $new_404" /etc/nginx/sites-available/default
+sudo sed -i "33i $new_404" /etc/nginx/sites-available/default
 sudo service nginx restart
