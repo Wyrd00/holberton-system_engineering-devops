@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # configures new Ubuntu machine with settings
 
-apt-get update -y
-apt-get install Nginx -y
+sudo apt-get update -y
+sudo apt-get install Nginx -y
 echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
-service nginx start
+sudo service nginx start
