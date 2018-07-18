@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 # configure Nginx server for custom 404 page w/specific str 
 
-sudo apt-get update -y
+sudo apt-get update
 sudo apt-get install Nginx -y
 echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
 sudo service nginx start
-new_404="error_page 404 /404.html; \
-	\nlocation = /404.html {\n root /usr/share/nginx/html;\ninternal;\n}"
-sudo sed -i "31i $new_404" /etc/nginx/sites-available/default 
+new_404="error_page 404 /404.html;\nlocation = /404.html {\n root /usr/share/nginx/html;\ninternal;\n}"
+sudo sed -i "31i $new_404" /etc/nginx/sites-available/default
 sudo service nginx restart
