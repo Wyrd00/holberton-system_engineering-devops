@@ -30,7 +30,8 @@ def deploy():
                 untars archive into /tmp/holbertonwebapp
         """
         run("mkdir /tmp/holbertonwebapp")
-        put("holbertonwebapp.tar.gz", "/tmp/holbertonwebapp")
+        put("holbertonwebapp.tar.gz")
+        run("mv holbertonwebapp.tar.gz /tmp/")
         run("cd /tmp/ && tar -xvf holbertonwebapp.tar.gz -C /holbertonwebapp")
 
 
