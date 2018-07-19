@@ -9,9 +9,10 @@
 from fabric.api import *
 
 
+#env.hosts = ["35.237.190.7"]
 env.user = "ubuntu"
-env.password = ""
-env.key_filename = "~/.ssh/holberton"
+#env.password = ""
+#env.key_filename = "~/.ssh/holberton"
 
 
 def pack():
