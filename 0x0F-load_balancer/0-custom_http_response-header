@@ -3,6 +3,10 @@
 
 sudo apt-get update
 sudo apt-get install Nginx -y
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
+new_404="error_page 404 /404.html;\nlocation = /404.html {\nroot /usr/share/nginx/html;\ninternal;\n}"
+sudo sed -i "33i $new_404" /etc/nginx/sites-available/default
+
 header="add_header X-Served-By $(cat /etc/hostname)"
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.original
 sudo sed -i "20i $header" /etc/nginx/sites-available/default
