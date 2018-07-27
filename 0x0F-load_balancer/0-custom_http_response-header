@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# set and configure new Ubuntu with custom header
+
+sudo apt-get update
+sudo apt-get install Nginx -y
+header="add_header X-Served-By $(cat /etc/hostname)"
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.original
+sudo sed -i "20i $header" /etc/nginx/sites-available/default
+sudo service nginx restart
