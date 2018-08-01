@@ -7,6 +7,6 @@ sudo apt-get install -y haproxy
 #append to back of haproxy file
 frontend="frontend http_front\n\tbind *:80\n\tdefault_backend http_back\n"
 backend="backend http_back\n\tbalance roundrobin\n\tserver 346-web-01 35.237.190.7:80 check\n\tserver 346-web-02 35.237.76.113:80 check\n"
-sudo sed -i "\$aENABLED=1" /etc/default/haproxy
+sudo sed -i "s/ENABLED=0/ENABLED=1/" /etc/default/haproxy
 sudo sed -i "\$a$frontend\n$backend" /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
