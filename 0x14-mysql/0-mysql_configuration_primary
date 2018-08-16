@@ -44,7 +44,8 @@ skip-external-locking
 #
 # Instead of skip-networking the default is now to listen only on
 # localhost which is more compatible and is not less secure.
-bind-address            = 127.0.0.1
+#bind-address           = 127.0.0.1
+#bind-address           = 35.237.169.179
 #
 # * Fine Tuning
 #
@@ -84,13 +85,12 @@ log_error = /var/log/mysql/error.log
 # The following can be used as easy to replay backup logs or for replication.
 # note: if you are setting up a replication slave, see README.Debian about
 #       other settings you may need to change.
-server-id               = 2
+server-id               = 1
 log_bin                 = /var/log/mysql/mysql-bin.log
 expire_logs_days        = 10
 max_binlog_size         = 100M
 binlog_do_db            = holberton
 #binlog_ignore_db       = include_database_name
-relay-log               = /var/log/mysql/mysql-relay-bin.log
 #
 # * InnoDB
 #
@@ -125,3 +125,4 @@ key_buffer              = 16M
 # * IMPORTANT: Additional settings that can override those from this file!
 #   The files must end with '.cnf', otherwise they'll be ignored.
 #
+!includedir /etc/mysql/conf.d/
