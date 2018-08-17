@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # script to generate mysqldump & make compresssed archive
 filename=$(date '+%d-%m-%Y');
-mysqldump -u root -p $1 --opt --all-databases > backup.sql;
+mysqldump -u root -p "$1" --opt holberton > backup.sql;
 tar -cvzf "$filename".tar.gz backup.sql;
