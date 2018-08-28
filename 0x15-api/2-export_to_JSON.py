@@ -2,9 +2,9 @@
 '''
     script recording tasks owned by specific employee in JSON format
 '''
+import json
 import requests
 from sys import argv
-import json
 
 if __name__ == "__main__":
     userRes = requests.get('https://jsonplaceholder.typicode.com/users/{}'
