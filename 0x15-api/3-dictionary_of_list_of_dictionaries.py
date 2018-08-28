@@ -11,12 +11,13 @@ if __name__ == "__main__":
     listy = []
     with open("todo_all_employees.json", 'w', encoding="utf-8") as jsonfile:
         for user in userRes.json():
+            user_id = user.get('id')
             taskR = requests.get(
-                    'https://jsonplaceholder.typicode.com/users/{}/todos'
-                    .format(user.get('id')))
+                    'https://jsonplaceholder.typicode.com/users/{}/todos'.format(user_id))
             for entry in taskR.json():
                 listy.append({"task": entry.get("title"),
-                              "completed": entry.get(
-                    "completed"), "username": user.get('username')})
-            data[user.get('id')] = listy
+                              "completed": entry.get("completed"),
+                              "username": user.get('username')})
+                data[user_id] = listy
+            listy = []
         json.dump(data, jsonfile)
