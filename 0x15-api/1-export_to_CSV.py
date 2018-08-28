@@ -2,9 +2,9 @@
 '''
     script using REST API that returns employee TODO list progress
 '''
+import csv
 import requests
 from sys import argv
-import csv
 
 if __name__ == "__main__":
     userRes = requests.get('https://jsonplaceholder.typicode.com/users/{}'
