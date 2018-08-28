@@ -16,9 +16,9 @@ if __name__ == "__main__":
                     'https://jsonplaceholder.typicode.com/users/{}/todos'
                     .format(user_id))
             for entry in taskR.json():
-                listy.append({"task": entry.get("title"),
-                              "completed": entry.get("completed"),
-                              "username": user.get('username')})
+                listy.append({"username": user.get('username'),
+                              "task": entry.get("title"),
+                              "completed": entry.get("completed")})
                 data[user_id] = listy
             listy = []
         json.dump(data, jsonfile)
