@@ -13,7 +13,8 @@ if __name__ == "__main__":
         for user in userRes.json():
             user_id = user.get('id')
             taskR = requests.get(
-                    'https://jsonplaceholder.typicode.com/users/{}/todos'.format(user_id))
+                    'https://jsonplaceholder.typicode.com/users/{}/todos'
+                    .format(user_id))
             for entry in taskR.json():
                 listy.append({"task": entry.get("title"),
                               "completed": entry.get("completed"),
