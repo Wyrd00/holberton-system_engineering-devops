@@ -11,9 +11,9 @@ from sys import argv
 
 if __name__ == '__main__':
     user = requests.get('https://jsonplaceholder.typicode.com/users/{}'
-                           .format(argv[1])).json()
-    task = requests.get('https://jsonplaceholder.typicode.com/users/{}/todos'
-                         .format(argv[1]))
+                        .format(argv[1])).json()
+    task = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'
+                        .format(argv[1]))
     with open('{}.csv'.format(argv[1]), 'w', newline='') as csvfile:
         result = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         listy = []
@@ -21,4 +21,3 @@ if __name__ == '__main__':
             listy.append([entry.get("userId"), user.get('username'),
                          entry.get("completed"), entry.get("title")])
         result.writerows(listy)
-
