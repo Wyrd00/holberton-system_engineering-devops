@@ -2,8 +2,8 @@
 '''
     script that records tasks from all employees in JSON format
 '''
-import requests
 import json
+import requests
 
 if __name__ == "__main__":
     userRes = requests.get('https://jsonplaceholder.typicode.com/users')
