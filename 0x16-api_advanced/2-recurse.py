@@ -2,7 +2,7 @@
 '''
     module for querying Reddit API
 '''
-import requests
+import requests as req
 
 
 def recurse(subreddit, hot_list=[], page='placeholder'):
@@ -10,9 +10,9 @@ def recurse(subreddit, hot_list=[], page='placeholder'):
         recursively query all the hottest post in a given subreddit
     '''
     try:
-        res = requests.get('https://www.reddit.com/r/{}/hot.json?limit=100&after={}'
-                           .format(subreddit, page),
-                           headers={"user-agent": 'ames'}).json()
+        res = req.get('https://www.reddit.com/r/{}/hot.json?limit=100&after={}'
+                      .format(subreddit, page),
+                      headers={"user-agent": 'ames'}).json()
         if page is None:
             return hot_list
         else:
