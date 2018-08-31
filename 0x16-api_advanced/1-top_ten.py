@@ -11,9 +11,9 @@ def top_ten(subreddit):
     '''
     try:
         res = req.get('https://www.reddit.com/r/{}/hot.json?limit=8'
-                      .format(subreddit),
+                      .format(subreddit), allow_redirections=False,
                       headers={"user-agent": 'ames'}).json()
         for post in res['data']['children']:
             print(post['data']['title'])
-    except KeyError:
-        return None
+    except BaseException:
+        print('None')
