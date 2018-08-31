@@ -10,8 +10,8 @@ def top_ten(subreddit):
         prints titles of the first 10 hots listings
     '''
     try:
-        res = req.get('https://www.reddit.com/r/{}/hot.json?limit=8'
-                      .format(subreddit), allow_redirections=False,
+        res = req.get('https://www.reddit.com/r/{}/hot.json?limit=10'
+                      .format(subreddit), allow_redirects=False,
                       headers={"user-agent": 'ames'}).json()
         for post in res['data']['children']:
             print(post['data']['title'])
