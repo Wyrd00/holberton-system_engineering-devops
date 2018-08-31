@@ -2,18 +2,17 @@
 '''
     module for querying Reddit API
 '''
-import requests
-from sys import argv
+import requests as req
+
 
 def number_of_subscribers(subreddit):
     '''
         get total subscribers of a subreddit
     '''
     try:
-        res = requests.get('https://www.reddit.com/r/{}/about.json'
-                           .format(subreddit), headers={"user-agent": 'ames'})
-                           .json()
-        #valid = requests.get('https://reddit.subreddits.search_by_name({}, exact=True)'.format(subreddit))
+        res = req.get('https://www.reddit.com/r/{}/about.json'
+                      .format(subreddit),
+                      headers={"user-agent": 'ames'}).json()
         return res['data']['subscribers']
-    except:
+    except KeyError:
         return 0
