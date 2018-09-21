@@ -32,7 +32,7 @@ server {
                 add_header X-Served-By 346-web-01;
                 # First attempt to serve request as file, then
                 # as directory, then fall back to displaying a 404.
-#               try_files $uri $uri/ =404;
+               try_files $uri $uri/ =404;
                 # Uncomment to enable naxsi on this location
                 # include /etc/nginx/naxsi.rules
         }
@@ -51,7 +51,8 @@ server {
         }
 
         location /api/ {
-
+                include proxy_params;
+                proxy_pass http://127.0.0.1:8002/api/;
         }
         # Only for nginx-naxsi used with nginx-naxsi-ui : process denied requests
         #location /RequestDenied {
